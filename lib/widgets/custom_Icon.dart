@@ -1,8 +1,9 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 
-class CustomSearchIcon extends StatelessWidget {
-  const CustomSearchIcon({super.key});
-
+class CustomIcon extends StatelessWidget {
+  final Icon icon;
+  const CustomIcon({super.key, required this.icon});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,13 +14,7 @@ class CustomSearchIcon extends StatelessWidget {
         borderRadius: BorderRadius.circular(14),
       ),
       child: Center(
-        child: GestureDetector(
-          onTap: () => print("object"),
-          child: const Icon(
-            Icons.search,
-            size: 30,
-          ),
-        ),
+        child: GestureDetector(onTap: () => print("object"), child: icon),
       ),
     );
   }

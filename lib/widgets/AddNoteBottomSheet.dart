@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/widgets/constants.dart';
-import 'package:notes_app/widgets/custem_Text_Field.dart';
+import 'package:notes_app/widgets/Custom_Text_Field.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({super.key});
@@ -9,10 +9,10 @@ class AddNoteBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        custemTextField(
+        CustomTextField(
           hintText: "Title",
         ),
-        custemTextField(
+        CustomTextField(
           hintText: "Comment",
           maxLines: 7,
         ),

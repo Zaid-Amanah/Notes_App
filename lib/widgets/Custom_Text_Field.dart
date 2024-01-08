@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/widgets/constants.dart';
 
 // ignore: must_be_immutable, camel_case_types
-class custemTextField extends StatelessWidget {
-  custemTextField({super.key, this.maxLines = 1, this.onChange, this.hintText});
+class CustomTextField extends StatelessWidget {
+  CustomTextField({super.key, this.maxLines = 1, this.onChange, this.hintText});
   String? hintText;
   int? maxLines;
   Function(String)? onChange;
