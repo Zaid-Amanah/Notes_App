@@ -12,7 +12,6 @@ class NotesItem extends StatelessWidget {
       width: 370,
       decoration: BoxDecoration(
         color: color,
-        // color: const Color(0xffFFCD7B),
         borderRadius: BorderRadius.circular(35),
       ),
       child: Column(

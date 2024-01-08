@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/views/notes_viewbody.dart';
+import 'package:notes_app/widgets/AddNoteBottomSheet.dart';
 
 class NotesView extends StatelessWidget {
   const NotesView({super.key});
@@ -10,6 +11,9 @@ class NotesView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(32),
+            ),
             context: context,
             builder: (context) {
               return const AddNoteBottomSheet();
@@ -20,16 +24,5 @@ class NotesView extends StatelessWidget {
       ),
       body: const NotesViewBody(),
     );
-  }
-}
-
-class AddNoteBottomSheet extends StatelessWidget {
-  const AddNoteBottomSheet({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        //child: Te,
-        );
   }
 }
