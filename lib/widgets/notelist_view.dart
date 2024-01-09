@@ -30,15 +30,7 @@ class NotesListView extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 10),
         child: GestureDetector(
           onTap: () {
-            // Navigator.pushNamed(context, "EditNotesView");
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return const EditNotesView();
-                },
-              ),
-            );
+            Navigator.pushNamed(context, "EditNotesView");
           },
           child: NotesItem(
             color: colorArray[index],

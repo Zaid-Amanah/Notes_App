@@ -11,7 +11,7 @@ class EditNotesView extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(
-            height: 30,
+            height: 46,
           ),
           const CustomAppBar(
             text: "Edit Note",
@@ -21,8 +21,8 @@ class EditNotesView extends StatelessWidget {
             hintText: "Title",
           ),
           CustomTextField(
-            hintText: "Comment",
-            maxLines: 7,
+            hintText: "Content",
+            maxLines: 8,
           ),
         ],
       ),

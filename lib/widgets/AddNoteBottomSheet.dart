@@ -13,7 +13,7 @@ class AddNoteBottomSheet extends StatelessWidget {
           hintText: "Title",
         ),
         CustomTextField(
-          hintText: "Comment",
+          hintText: "Content",
           maxLines: 7,
         ),
         const Spacer(),
