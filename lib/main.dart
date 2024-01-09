@@ -6,7 +6,7 @@ void main() {
   runApp(const Notesapp());
 }
 
-//video 12 don
+//video 12 done
 class Notesapp extends StatelessWidget {
   const Notesapp({super.key});
   @override
