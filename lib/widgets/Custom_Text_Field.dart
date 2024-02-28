@@ -30,24 +30,39 @@ class CustomTextField extends StatelessWidget {
         },
         onChanged: onChange,
         decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: const TextStyle(
-            fontSize: 15,
-            color: kPrimaryColor,
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(18),
-            borderSide: const BorderSide(color: Colors.white),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(18),
-            borderSide: const BorderSide(color: kPrimaryColor),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(18),
-            borderSide: const BorderSide(color: Colors.white),
-          ),
-        ),
+            hintText: hintText,
+            hintStyle: const TextStyle(
+              fontSize: 15,
+              color: kPrimaryColor,
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(18),
+              borderSide: const BorderSide(color: Colors.white),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(18),
+              borderSide: const BorderSide(color: kPrimaryColor),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(18),
+              borderSide: const BorderSide(color: Colors.white),
+            ),
+            errorStyle: const TextStyle(
+              color: Color.fromARGB(255, 205, 21, 8),
+              fontSize: 14,
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(18),
+              borderSide: const BorderSide(
+                color: Color.fromARGB(255, 205, 21, 8),
+              ),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(18),
+              borderSide: const BorderSide(
+                color: Color.fromARGB(255, 205, 21, 8),
+              ),
+            )),
       ),
     );
   }
