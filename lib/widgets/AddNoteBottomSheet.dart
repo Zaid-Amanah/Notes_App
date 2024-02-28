@@ -1,81 +1,63 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/constants.dart';
 import 'package:notes_app/widgets/Custom_Text_Field.dart';
+import 'package:notes_app/widgets/custom_Button.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomTextField(
-          hintText: "Title",
-        ),
-        CustomTextField(
-          hintText: "Content",
-          maxLines: 7,
-        ),
-        const Spacer(),
-        GestureDetector(
-          onTap: () => print("object"),
-          child: Container(
-            height: 45,
-            width: 350,
-            decoration: BoxDecoration(
-              color: kPrimaryColor,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: const Center(
-              child: Text(
-                "Add",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+    return const AddNoteForm();
+  }
+}
+
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({
+    super.key,
+  });
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+}
+
+class _AddNoteFormState extends State<AddNoteForm> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? titel, subtitel;
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
+      child: Column(
+        children: [
+          CustomTextField(
+            onSave: (p0) {
+              titel = p0;
+            },
+            hintText: "Title",
           ),
-        ),
-        const Spacer(),
-      ],
+          CustomTextField(
+            onSave: (p0) {
+              subtitel = p0;
+            },
+            hintText: "Content",
+            maxLines: 7,
+          ),
+          const Spacer(),
+          Custom_Button(
+            onTap: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
+          ),
+          const Spacer(),
+        ],
+      ),
     );
   }
 }
-/*
-
-// Padding(
-        //   padding: EdgeInsets.fromLTRB(10, 25, 10, 10),
-        //   child: TextField(
-        //     decoration: InputDecoration(
-        //       enabledBorder: OutlineInputBorder(
-        //           borderSide: BorderSide(color: Colors.white)),
-        //       border: OutlineInputBorder(
-        //           borderSide: BorderSide(color: Colors.white)),
-        //       hintText: "Title",
-        //       //border: InputBorder.none,
-        //       hintStyle: TextStyle(
-        //         color: Color(0xff54EBD7),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-        // Padding(
-        //   padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-        //   child: TextField(
-        //     decoration: InputDecoration(
-        //       enabledBorder: OutlineInputBorder(
-        //           borderSide: BorderSide(color: Colors.white)),
-        //       border: OutlineInputBorder(
-        //           borderSide: BorderSide(color: Colors.white)),
-        //       hintText: "Comment",
-        //       hintStyle: TextStyle(
-        //         color: Color(0xff54EBD7),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-
-
-*/

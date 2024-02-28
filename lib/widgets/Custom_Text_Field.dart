@@ -4,20 +4,27 @@ import 'package:notes_app/widgets/constants.dart';
 
 // ignore: must_be_immutable, camel_case_types
 class CustomTextField extends StatelessWidget {
-  CustomTextField({super.key, this.maxLines = 1, this.onChange, this.hintText});
+  CustomTextField(
+      {super.key,
+      this.maxLines = 1,
+      this.onChange,
+      this.hintText,
+      this.onSave});
   String? hintText;
   int? maxLines;
+  final void Function(String?)? onSave;
   Function(String)? onChange;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 25, 16, 10),
       child: TextFormField(
+        onSaved: onSave,
         cursorColor: kPrimaryColor,
         maxLines: maxLines,
         validator: (value) {
-          if (value!.isEmpty) {
-            return "This field is required";
+          if (value?.isEmpty ?? true) {
+            return "This field is Required";
           }
           return null;
         },
