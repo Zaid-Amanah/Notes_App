@@ -11,12 +11,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async {
   Bloc.observer = SimpelBlocObserver();
   await Hive.initFlutter();
-  await Hive.openBox(kNotesBox);
+  await Hive.openBox<NoteModel>(kNotesBox);
   Hive.registerAdapter(NoteModelAdapter());
   runApp(const Notesapp());
 }
 
-//video 24 done
+//video 27 done
 class Notesapp extends StatelessWidget {
   const Notesapp({Key? key}) : super(key: key);
   @override
