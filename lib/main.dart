@@ -14,7 +14,7 @@ void main() async {
   runApp(const Notesapp());
 }
 
-//video 20 done
+//video 24 done
 class Notesapp extends StatelessWidget {
   const Notesapp({Key? key}) : super(key: key);
   @override
