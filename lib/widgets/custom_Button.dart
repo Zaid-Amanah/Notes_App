@@ -4,8 +4,9 @@ import 'package:notes_app/widgets/constants.dart';
 
 // ignore: camel_case_types
 class Custom_Button extends StatelessWidget {
-  const Custom_Button({super.key, this.onTap});
+  const Custom_Button({super.key, this.onTap, this.isLoding = false});
   final void Function()? onTap;
+  final bool isLoding;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -17,15 +18,23 @@ class Custom_Button extends StatelessWidget {
           color: kPrimaryColor,
           borderRadius: BorderRadius.circular(16),
         ),
-        child: const Center(
-          child: Text(
-            "Add",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+        child: Center(
+          child: isLoding
+              ? const SizedBox(
+                  height: 7,
+                  width: 30,
+                  child: CircularProgressIndicator(
+                    color: Colors.black,
+                  ),
+                )
+              : const Text(
+                  "Add",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
         ),
       ),
     );
