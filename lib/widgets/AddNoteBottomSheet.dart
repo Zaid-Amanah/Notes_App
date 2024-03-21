@@ -1,4 +1,5 @@
 // ignore_for_file: file_names
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,9 +22,16 @@ class AddNoteBottomSheet extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return const AbsorbPointer(
+          return AbsorbPointer(
             absorbing: State is AddNoteLoading ? true : false,
-            child: AddNoteForm(),
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: 8,
+                right: 8,
+                bottom: MediaQuery.of(context).viewInsets.bottom,
+              ),
+              child: const AddNoteForm(),
+            ),
           );
         },
       ),

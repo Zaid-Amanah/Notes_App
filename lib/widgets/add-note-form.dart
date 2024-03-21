@@ -23,45 +23,51 @@ class _AddNoteFormState extends State<AddNoteForm> {
     return Form(
       key: formKey,
       autovalidateMode: autovalidateMode,
-      child: Column(
-        children: [
-          CustomTextField(
-            onSave: (p0) {
-              title = p0;
-            },
-            hintText: "Title",
-          ),
-          CustomTextField(
-            onSave: (p0) {
-              subtitel = p0;
-            },
-            hintText: "Content",
-            maxLines: 7,
-          ),
-          const Spacer(),
-          BlocBuilder<NotesCubit, NotesState>(
-            builder: (context, state) {
-              return Custom_Button(
-                isLoding: state is AddNoteLoading ? true : false,
-                onTap: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                    var noteModel = NoteModel(
-                        title: title!,
-                        subtitle: subtitel!,
-                        date: DateTime.now().toString(),
-                        color: 0);
-                    BlocProvider.of<NotesCubit>(context).addNote(noteModel);
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                    setState(() {});
-                  }
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            CustomTextField(
+              onSave: (p0) {
+                title = p0;
+              },
+              hintText: "Title",
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 23),
+              child: CustomTextField(
+                onSave: (p0) {
+                  subtitel = p0;
                 },
-              );
-            },
-          ),
-          const Spacer(),
-        ],
+                hintText: "Content",
+                maxLines: 7,
+              ),
+            ),
+            BlocBuilder<NotesCubit, NotesState>(
+              builder: (context, state) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 30),
+                  child: Custom_Button(
+                    isLoding: state is AddNoteLoading ? true : false,
+                    onTap: () {
+                      if (formKey.currentState!.validate()) {
+                        formKey.currentState!.save();
+                        var noteModel = NoteModel(
+                            title: title!,
+                            subtitle: subtitel!,
+                            date: DateTime.now().toString(),
+                            color: 0);
+                        BlocProvider.of<NotesCubit>(context).addNote(noteModel);
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                        setState(() {});
+                      }
+                    },
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
