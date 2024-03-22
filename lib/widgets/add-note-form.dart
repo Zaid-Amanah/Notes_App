@@ -42,7 +42,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 maxLines: 7,
               ),
             ),
-            BlocBuilder<NotesCubit, NotesState>(
+            BlocBuilder<AddNotesCubit, AddNotesState>(
               builder: (context, state) {
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 30),
@@ -56,7 +56,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
                             subtitle: subtitel!,
                             date: DateTime.now().toString(),
                             color: 0);
-                        BlocProvider.of<NotesCubit>(context).addNote(noteModel);
+                        BlocProvider.of<AddNotesCubit>(context)
+                            .addNote(noteModel);
                       } else {
                         autovalidateMode = AutovalidateMode.always;
                         setState(() {});
