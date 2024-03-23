@@ -30,6 +30,7 @@ class NotesListView extends StatelessWidget {
       builder: (context, state) {
         List<NoteModel> notes =
             BlocProvider.of<NotesCubit>(context).notes ?? [];
+        //print("zaid: ${notes.first.color}");
         return ListView.builder(
           itemCount: notes.length,
           padding: EdgeInsets.zero,
@@ -40,6 +41,8 @@ class NotesListView extends StatelessWidget {
                 Navigator.pushNamed(context, "EditNotesView");
               },
               child: NotesItem(
+                notes: notes[index],
+                //color: colorArray[notes.elementAt(index).color],
                 color: colorArray[index],
               ),
             ),
